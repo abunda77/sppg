@@ -5,7 +5,7 @@
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />
 
-        <form method="POST" action="{{ route('register.store') }}" class="flex flex-col gap-6">
+        <form method="POST" action="{{ route('register.store') }}" class="flex flex-col gap-5">
             @csrf
             <!-- Name -->
             <flux:input
@@ -55,15 +55,15 @@
             />
 
             <div class="flex items-center justify-end">
-                <flux:button type="submit" variant="primary" class="w-full" data-test="register-user-button">
+                <flux:button type="submit" variant="primary" class="w-full transition duration-200 hover:-translate-y-0.5" data-test="register-user-button">
                     {{ __('Create account') }}
                 </flux:button>
             </div>
         </form>
 
-        <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
+        <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-white/50">
             <span>{{ __('Already have an account?') }}</span>
-            <flux:link :href="route('login')" wire:navigate>{{ __('Log in') }}</flux:link>
+            <flux:link class="text-[#d6ad4b] decoration-[#d6ad4b]/30 hover:text-[#e5c46f]" :href="route('login')" wire:navigate>{{ __('Log in') }}</flux:link>
         </div>
     </div>
 </x-layouts::auth>

@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Fortify\Features;
+
+uses(RefreshDatabase::class);
 
 beforeEach(function () {
     $this->skipUnlessFortifyHas(Features::registration());
@@ -9,7 +12,13 @@ beforeEach(function () {
 test('registration screen can be rendered', function () {
     $response = $this->get(route('register'));
 
-    $response->assertOk();
+    $response
+        ->assertOk()
+        ->assertSee('Create an account')
+        ->assertSee('images/welcome/logo_PMJ.png')
+        ->assertSee('images/welcome/logo_LOGISTIK_PMJ.png')
+        ->assertSee('images/welcome/logo.png')
+        ->assertSee('rounded-[2rem]', escape: false);
 });
 
 test('new users can register', function () {

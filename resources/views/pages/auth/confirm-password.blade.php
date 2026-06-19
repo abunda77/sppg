@@ -7,15 +7,17 @@
 
         <x-auth-session-status class="text-center" :status="session('status')" />
 
-        <x-passkey-verify
-            options-route="passkey.confirm-options"
-            submit-route="passkey.confirm"
-            :label="__('Confirm with passkey')"
-            :loading-label="__('Confirming...')"
-            :separator="__('Or confirm with password')"
-        />
+        <div class="[&_[data-flux-button]]:border-white/10 [&_[data-flux-button]]:bg-white/5 [&_[data-flux-button]]:text-white [&_[data-flux-button]]:shadow-none hover:[&_[data-flux-button]]:bg-white/10">
+            <x-passkey-verify
+                options-route="passkey.confirm-options"
+                submit-route="passkey.confirm"
+                :label="__('Confirm with passkey')"
+                :loading-label="__('Confirming...')"
+                :separator="__('Or confirm with password')"
+            />
+        </div>
 
-        <form method="POST" action="{{ route('password.confirm.store') }}" class="flex flex-col gap-6">
+        <form method="POST" action="{{ route('password.confirm.store') }}" class="flex flex-col gap-5">
             @csrf
 
             <flux:input
@@ -28,7 +30,7 @@
                 viewable
             />
 
-            <flux:button variant="primary" type="submit" class="w-full" data-test="confirm-password-button">
+            <flux:button variant="primary" type="submit" class="w-full transition duration-200 hover:-translate-y-0.5" data-test="confirm-password-button">
                 {{ __('Confirm') }}
             </flux:button>
         </form>

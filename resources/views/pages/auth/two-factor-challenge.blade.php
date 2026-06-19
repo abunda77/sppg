@@ -43,7 +43,7 @@
                 />
             </div>
 
-            <form method="POST" action="{{ route('two-factor.login.store') }}">
+            <form method="POST" action="{{ route('two-factor.login.store') }}" class="flex flex-col gap-5">
                 @csrf
 
                 <div class="space-y-5 text-center">
@@ -55,7 +55,7 @@
                                 name="code"
                                 label="OTP Code"
                                 label:sr-only
-                                class="mx-auto"
+                                class="mx-auto [&_[data-flux-control]]:border-white/10 [&_[data-flux-control]]:bg-white/[0.045]"
                              />
                         </div>
                     </div>
@@ -69,6 +69,7 @@
                                 x-bind:required="showRecoveryInput"
                                 autocomplete="one-time-code"
                                 x-model="recovery_code"
+                                :placeholder="__('Recovery code')"
                             />
                         </div>
 
@@ -82,15 +83,15 @@
                     <flux:button
                         variant="primary"
                         type="submit"
-                        class="w-full"
+                        class="w-full transition duration-200 hover:-translate-y-0.5"
                     >
                         {{ __('Continue') }}
                     </flux:button>
                 </div>
 
-                <div class="mt-5 space-x-0.5 text-sm leading-5 text-center">
-                    <span class="opacity-50">{{ __('or you can') }}</span>
-                    <div class="inline font-medium underline cursor-pointer opacity-80">
+                <div class="mt-5 space-x-0.5 text-center text-sm leading-5 text-white/50">
+                    <span>{{ __('or you can') }}</span>
+                    <div class="inline cursor-pointer font-medium text-[#d6ad4b] underline decoration-[#d6ad4b]/30 underline-offset-[6px] transition hover:text-[#e5c46f]">
                         <span x-show="!showRecoveryInput" @click="toggleInput()">{{ __('login using a recovery code') }}</span>
                         <span x-show="showRecoveryInput" @click="toggleInput()">{{ __('login using an authentication code') }}</span>
                     </div>

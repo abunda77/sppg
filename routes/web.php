@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PublicBahanPanganController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
@@ -17,3 +18,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 require __DIR__.'/settings.php';
+
+Route::get('katalog-bahan-pangan', [PublicBahanPanganController::class, 'index'])->name('katalog.bahan-pangan');

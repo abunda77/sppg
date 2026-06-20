@@ -26,7 +26,8 @@
                     <a href="#home" class="border-b-2 border-[#d7ad43] py-7 text-[#17382a]">Home</a>
                     <a data-placeholder-link="organogram" href="#" class="py-7 transition-colors hover:text-[#17382a]">Organogram</a>
                     <a data-placeholder-link="galeri-sop" href="#" class="py-7 transition-colors hover:text-[#17382a]">Galeri SOP</a>
-                    <a data-placeholder-link="aplikasi-simpel" href="#" class="py-7 transition-colors hover:text-[#17382a]">Aplikasi SIMPEL</a>
+                    <a data-placeholder-link="aplikasi-simpel" href="{{ route('katalog.bahan-pangan') }}" class="py-7 transition-colors hover:text-[#17382a]">Bahan Pangan</a>
+                <a data-placeholder-link="aplikasi-simpel" href="katalog-menu-bergizi" class="py-7 transition-colors hover:text-[#17382a]">Menu Bergizi</a>
                 </nav>
 
                 <div class="hidden items-center gap-3 sm:flex">

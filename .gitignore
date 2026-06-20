@@ -29,3 +29,8 @@ yarn-error.log
 frankenphp
 frankenphp-worker.php
 .superpowers/
+.agents/skills/octane-development/
+.claude/skills/octane-development/
+.cursor/skills/octane-development/
+.factory/skills/octane-development/
+.kiro/skills/octane-development/

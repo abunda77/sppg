@@ -6,6 +6,12 @@ Route::view('/', 'welcome')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
+
+    Route::middleware(['role:super_admin'])->group(function () {
+        Route::livewire('admin/users', 'pages::admin.users')->name('admin.users');
+        Route::livewire('admin/roles', 'pages::admin.roles')->name('admin.roles');
+        Route::livewire('admin/permissions', 'pages::admin.permissions')->name('admin.permissions');
+    });
 });
 
 require __DIR__.'/settings.php';

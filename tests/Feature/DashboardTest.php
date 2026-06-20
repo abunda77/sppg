@@ -8,9 +8,19 @@ test('guests are redirected to the login page', function () {
 });
 
 test('authenticated users can visit the dashboard', function () {
-    $user = User::factory()->create();
+    $user = \Mockery::mock(User::factory()->make())->makePartial();
+    $user->shouldReceive('hasRole')->andReturnFalse();
     $this->actingAs($user);
 
     $response = $this->get(route('dashboard'));
-    $response->assertOk();
+    $response->assertOk()
+        ->assertSeeTextInOrder([
+            'Dashboard Operasional',
+            'Ringkasan distribusi, stok, dan kesiapan layanan hari ini.',
+            'Target Porsi Hari Ini',
+            'Menu Hari Ini',
+            'Tahapan Produksi',
+            'Ringkasan Keuangan',
+        ])
+        ->assertSee('data-dashboard-shell="operational"', false);
 });

@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(RolePermissionSeeder::class);
+        $this->call(BahanPanganSeeder::class);
 
         if (! User::where('email', 'erieputranto@gmail.com')->exists()) {
             User::factory()->create([

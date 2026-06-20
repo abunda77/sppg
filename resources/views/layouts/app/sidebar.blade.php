@@ -15,6 +15,9 @@
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="cube" :href="route('bahan-pangan.index')" :current="request()->routeIs('bahan-pangan.*')" wire:navigate>
+                        {{ __('Bahan Pangan') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
 
                 @role('super_admin')

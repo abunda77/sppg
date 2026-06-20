@@ -7,6 +7,8 @@ Route::view('/', 'welcome')->name('home');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 
+    Route::livewire('bahan-pangan', 'pages::bahan-pangan.index')->name('bahan-pangan.index');
+
     Route::middleware(['role:super_admin'])->group(function () {
         Route::livewire('admin/users', 'pages::admin.users')->name('admin.users');
         Route::livewire('admin/roles', 'pages::admin.roles')->name('admin.roles');

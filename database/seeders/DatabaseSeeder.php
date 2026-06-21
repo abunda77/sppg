@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolePermissionSeeder::class);
         $this->call(BahanPanganSeeder::class);
+        $this->call(MenuBergiziSeeder::class);
 
         if (! User::where('email', 'erieputranto@gmail.com')->exists()) {
             User::factory()->create([

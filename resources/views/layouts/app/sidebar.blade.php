@@ -51,6 +51,15 @@
                     >
                         {{ __('Bahan Pangan') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item
+                        icon="document-text"
+                        :href="route('menu-bergizi.index')"
+                        :current="request()->routeIs('menu-bergizi.*')"
+                        wire:navigate
+                        class="rounded-2xl! border border-transparent! text-[#d9e1d8]! hover:bg-white/6! hover:text-white! data-current:border-[#de8b39]/20! data-current:bg-[#cf7d2f]! data-current:text-white!"
+                    >
+                        {{ __('Menu Bergizi') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
 
                 @role('super_admin')

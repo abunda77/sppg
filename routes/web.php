@@ -11,6 +11,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::livewire('bahan-pangan', 'pages::bahan-pangan.index')->name('bahan-pangan.index');
     Route::livewire('menu-bergizi', 'pages::menu-bergizi.index')->name('menu-bergizi.index');
+    Route::livewire('karyawan', 'pages::karyawan.index')->name('karyawan.index');
 
     Route::middleware(['role:super_admin'])->group(function () {
         Route::livewire('admin/users', 'pages::admin.users')->name('admin.users');

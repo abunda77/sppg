@@ -8,7 +8,7 @@ test('guests are redirected to the login page', function () {
 });
 
 test('authenticated users can visit the dashboard', function () {
-    $user = \Mockery::mock(User::factory()->make())->makePartial();
+    $user = Mockery::mock(User::factory()->make())->makePartial();
     $user->shouldReceive('hasRole')->andReturnFalse();
     $this->actingAs($user);
 
